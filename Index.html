@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VCard QR Generator</title>
+  <link rel="icon" type="image/png" href="C:\Users\Yeuh1\Desktop\testVc\QRlogo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <img src="C:\Users\Yeuh1\Desktop\testVc\QRlogo.png" class="brand-logo" id="mainLogo">
+      <h1>VCard & QR Generator</h1>
+    </header>
+
+    <form id="vcardForm" class="form">
+      <div class="grid">
+        <label>First Name <input type="text" id="firstName" placeholder="John" required></label>
+        <label>Last Name <input type="text" id="lastName" placeholder="Lee" required></label>
+        <label>Company <input type="text" id="company" placeholder="Makcorp Inc."></label>
+        <label>Job Title <input type="text" id="title" placeholder="Manager"></label>
+        <label>Phone <input type="tel" id="phone" placeholder="+90 555 555 5555" required></label>
+        <label>Email <input type="email" id="email" placeholder="john@makcorp.com"></label>
+        <label>Website <input type="url" id="website" placeholder="https://example.com"></label>
+        <label class="wide">Address <input type="text" id="address" placeholder="123 Example St, City, Country"></label>
+        <label class="wide">Notes <input type="text" id="notes" placeholder="Optional notes"></label>
+      </div>
+
+      <div class="customize">
+        <label>
+          QR Color
+          <input type="color" id="qrColor" value="#06b6d4">
+        </label>
+        <label>
+          Gradient Color
+          <input type="color" id="qrGradient" value="#3b82f6">
+        </label>
+        <label>
+          Upload Logo
+          <input type="file" id="logoUpload" accept="image/*">
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="generateBtn">Generate QR</button>
+        <button type="button" id="downloadVcfBtn" disabled>Download .vcf</button>
+        <button type="button" id="downloadPngBtn" disabled>Download QR</button>
+        <button type="button" id="resetBtn" class="ghost">Reset</button>
+      </div>
+    </form>
+
+    <section class="preview">
+      <h2>Preview</h2>
+      <div class="preview-inner">
+        <div id="vcardPreview" class="business-card">
+          <div class="card-header">
+            <div class="logo"> LOGO <br> </div>
+            <div class="slogan">YOUR SLOGAN HERE</div>
+          </div>
+          
+          <div class="name-title">
+            <div class="name">YOUR NAME</div>
+            <div class="title">YOUR TITLE</div>
+          </div>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-details">
+                <span>+90 555 555 5555</span>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-details">
+                <span>your@email.com</span>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-globe"></i></div>
+              <div class="contact-details">
+                <span>yourwebsite.com</span>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-details">
+                <span>Your Address</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="divider"></div>
+          
+          <div class="address">
+          </div>
+        </div>
+        <div class="qr-area">
+          <div class="qr-wrapper">
+            <canvas id="qrCanvas" width="260" height="260"></canvas>
+            <img id="qrLogo" src="image/logo.png" alt="logo" class="qr-logo">
+          </div>
+          <p id="qrHint">Generate QR code to see preview</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <small>Scan to save contact</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
