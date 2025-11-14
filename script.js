@@ -132,7 +132,7 @@ function updatePreviewAndQR(data) {
   vcardPreview.innerHTML = `
 
         <div class="card-header">
-          <div class="logo">${company || 'COMPANY'}</div>
+          <div class="logo">${customLogo || 'COMPANY'}</div>
         </div>
         
         
@@ -237,5 +237,6 @@ resetBtn.onclick = () => {
   location.reload();
 
 }
+
 
 
